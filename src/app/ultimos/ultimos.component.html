@@ -1,17 +1,147 @@
-<div class="ultimos">
+<!-- <div class="ultimos">
   <h3>Últimos eventos creados</h3>
-  <!-- @for(){ -->
-  <div class="grid gap-4">
-    <div class="grid grid-cols-5 gap-4">
-      <div>
+  <div class="w-full max-w-sm bg-white rounded-lg flex flex-row">
+    <div *ngFor="let evento of eventos">
+      <a href="#">
         <img
-          class="h-auto max-w-full rounded-lg"
-          src="{{ data.image }}"
-          alt=""
+          class="p-8 rounded-t-lg"
+          src="../../../images/Logo.png"
+          alt="product image"
         />
+      </a>
+      <div class="px-5 pb-5">
+        <a href="#">
+          <h5
+            class="text-xl font-semibold tracking-tight text-gray-900 dark:text-white"
+          >
+            {{ evento.nombre }}
+          </h5>
+        </a>
+        <div class="flex items-center mt-2.5 mb-5">
+          <h3>Evento creado por {{ evento.creador }}</h3>
+          <h5>{{ evento.detalle }}</h5>
+        </div>
+        <div class="flex items-center justify-center">
+          <a
+            href="#"
+            class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+            >Ver más</a
+          >
+        </div>
       </div>
     </div>
   </div>
+</div> -->
 
-  <!-- } -->
+<div class="ultimos py-8 ">
+<h3 class="text-3xl font-semibold ml-24 mb-6">Últimos eventos creados</h3>
+
+<!-- Contenedor para los eventos en fila con scroll horizontal -->
+<div class="relative overflow-x-auto scrollbar-hide w-full max-w-7xl mx-auto mt-0">
+  <div class="flex space-x-6 py-4">
+    <!-- Aquí van los eventos -->
+    <div class="flex-shrink-0 w-[300px] max-w-xs bg-white rounded-lg shadow-lg">
+      <a href="#">
+        <img class="p-8 rounded-t-lg" src="../../../images/Logo.png" alt="Imagen de evento" />
+      </a>
+      <div class="px-5 pb-5">
+        <a href="#">
+          <h5 class="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">Evento</h5>
+        </a>
+        <div class="flex items-center mt-2.5 mb-5">
+          <h3 class="text-gray-700 dark:text-gray-300">Evento creado por X</h3>
+          <h5 class="text-gray-500 dark:text-gray-400 ml-4">Algún detalle del evento</h5>
+        </div>
+        <div class="flex items-center justify-center">
+          <a href="#" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+            Ver más
+          </a>
+        </div>
+      </div>
+    </div>
+      <!-- Evento 2 -->
+      <div class="flex-shrink-0 w-[300px] max-w-xs bg-white rounded-lg shadow-lg">
+        <a href="#">
+          <img class="p-8 rounded-t-lg" src="../../../images/Logo.png" alt="Imagen de evento" />
+        </a>
+        <div class="px-5 pb-5">
+          <a href="#">
+            <h5 class="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">Evento</h5>
+          </a>
+          <div class="flex items-center mt-2.5 mb-5">
+            <h3 class="text-gray-700 dark:text-gray-300">Evento creado por X</h3>
+            <h5 class="text-gray-500 dark:text-gray-400 ml-4">Algún detalle del evento</h5>
+          </div>
+          <div class="flex items-center justify-center">
+            <a href="#" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+              Ver más
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Evento 3 -->
+      <div class="flex-shrink-0 w-[300px] max-w-xs bg-white rounded-lg shadow-lg">
+        <a href="#">
+          <img class="p-8 rounded-t-lg" src="../../../images/Logo.png" alt="Imagen de evento" />
+        </a>
+        <div class="px-5 pb-5">
+          <a href="#">
+            <h5 class="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">Evento</h5>
+          </a>
+          <div class="flex items-center mt-2.5 mb-5">
+            <h3 class="text-gray-700 dark:text-gray-300">Evento creado por X</h3>
+            <h5 class="text-gray-500 dark:text-gray-400 ml-4">Algún detalle del evento</h5>
+          </div>
+          <div class="flex items-center justify-center">
+            <a href="#" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+              Ver más
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Evento 4 -->
+      <div class="flex-shrink-0 w-[300px] max-w-xs bg-white rounded-lg shadow-lg">
+        <a href="#">
+          <img class="p-8 rounded-t-lg" src="../../../images/Logo.png" alt="Imagen de evento" />
+        </a>
+        <div class="px-5 pb-5">
+          <a href="#">
+            <h5 class="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">Evento</h5>
+          </a>
+          <div class="flex items-center mt-2.5 mb-5">
+            <h3 class="text-gray-700 dark:text-gray-300">Evento creado por X</h3>
+            <h5 class="text-gray-500 dark:text-gray-400 ml-4">Algún detalle del evento</h5>
+          </div>
+          <div class="flex items-center justify-center">
+            <a href="#" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+              Ver más
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Evento 5 -->
+      <div class="flex-shrink-0 w-[300px] max-w-xs bg-white rounded-lg shadow-lg">
+        <a href="#">
+          <img class="p-8 rounded-t-lg" src="../../../images/Logo.png" alt="Imagen de evento" />
+        </a>
+        <div class="px-5 pb-5">
+          <a href="#">
+            <h5 class="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">Evento</h5>
+          </a>
+          <div class="flex items-center mt-2.5 mb-5">
+            <h3 class="text-gray-700 dark:text-gray-300">Evento creado por X</h3>
+            <h5 class="text-gray-500 dark:text-gray-400 ml-4">Algún detalle del evento</h5>
+          </div>
+          <div class="flex items-center justify-center">
+            <a href="#" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+              Ver más
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

@@ -1,36 +1,32 @@
-<div class="mapa">
-  <div
-    class="max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700"
-  >
-    <a href="#">
-      <ng-icon class="icon" [svg]="icon" size="50px"></ng-icon>
-      <h5
-        class="mb-2 text-2xl font-semibold tracking-tight text-gray-900 dark:text-white"
-      >
-        Ver eventos
-      </h5>
-    </a>
-    <h5 class="mb-3 font-normal text-gray-500 dark:text-gray-400">
-      Pulsa para ver todos los eventos disponibls
-    </h5>
-  </div>
+<div class="mapa flex flex-col sm:flex-row items-center justify-center h-auto w-screen">
+  <div class="contenedor-central w-full sm:w-3/5 flex flex-col sm:flex-row items-center justify-center">
+    <div class="tarjetas-contenedor w-full sm:w-1/2 flex flex-col gap-6 p-6">
+      <div class="max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700">
+        <a href="#">
+          <ng-icon class="icon" [svg]="icon" size="50px"></ng-icon>
+          <h5 class="mb-2 text-2xl font-semibold tracking-tight text-gray-900 dark:text-white">
+            Ver eventos
+          </h5>
+        </a>
+        <h5 class="mb-3 font-normal text-gray-500 dark:text-gray-400">
+          Pulsa para ver todos los eventos disponibles
+        </h5>
+      </div>
 
-  <div
-    class="max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700"
-  >
-    <a href="#">
-      <ng-icon class="icon" [svg]="icono" size="50px"></ng-icon>
-      <h5
-        class="mb-2 text-2xl font-semibold tracking-tight text-gray-900 dark:text-white"
-      >
-        Organiza un evento
-      </h5>
-    </a>
-    <h5 class="mb-3 font-normal text-gray-500 dark:text-gray-400">
-      ¡Tardarás menos de 1 minuto en crear un evento para reunir gente y dar a
-      conocer tu negocio!
-    </h5>
-  </div>
+      <div class="max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700">
+        <a href="#">
+          <ng-icon class="icon" [svg]="icono" size="50px"></ng-icon>
+          <h5 class="mb-2 text-2xl font-semibold tracking-tight text-gray-900 dark:text-white">
+            Organiza un evento
+          </h5>
+        </a>
+        <h5 class="mb-3 font-normal text-gray-500 dark:text-gray-400">
+          ¡Tardarás menos de 1 minuto en crear un evento para reunir gente y dar a
+          conocer tu negocio!
+        </h5>
+      </div>
+    </div>
 
-  <div id="hs-grayscale-leaflet" style="height: 400px; width: 400px"></div>
+    <div id="hs-grayscale-leaflet" class="w-full sm:w-1/2 h-96 bg-gray-200 rounded-lg"></div>
+  </div>
 </div>

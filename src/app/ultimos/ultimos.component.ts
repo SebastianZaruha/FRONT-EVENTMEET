@@ -3,7 +3,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-ultimos',
-  imports: [NgFor],
+  imports: [],
   templateUrl: './ultimos.component.html',
   styleUrl: './ultimos.component.css',
 })

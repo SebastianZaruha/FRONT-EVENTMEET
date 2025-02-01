@@ -1,0 +1,115 @@
+<div class="relative">
+  <img
+    class="w-full h-[30vh] object-cover relative z-0 mt-[-10vh]"
+    src="/images/cabeceraEventos.png"
+    alt="Imagen de cabecera"
+  />
+  <div class="absolute top-2/3 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white text-center">
+    <h1 class="text-3xl font-bold">Descubre eventos que se adaptan a ti</h1>
+    <h3 class="text-xl mt-4">Conecta, explora, comparte y crea recuerdos únicos</h3>
+  </div>
+</div>
+
+<!-- Navbar con filtros centrados -->
+<nav class="w-full bg-white dark:bg-gray-800 shadow-lg">
+  <div class="max-w-screen-xl mx-auto p-4">
+    <div class="flex justify-center space-x-6">
+      <!-- Botón de filtro para Lugar -->
+      <button
+        (click)="toggleLugarFilter()"
+        class="text-black hover:bg-gray-300 dark:text-white dark:hover:bg-gray-600 font-medium rounded-lg text-sm px-5 py-2.5"
+      >
+        Lugar
+      </button>
+      
+      <!-- Botón de filtro para Fecha -->
+      <button
+        (click)="toggleFechaFilter()"
+        class="text-black hover:bg-gray-300 dark:text-white dark:hover:bg-gray-600 font-medium rounded-lg text-sm px-5 py-2.5"
+      >
+        Fecha
+      </button>
+
+      <!-- Botón de filtro para Hora -->
+      <button
+        (click)="toggleHoraFilter()"
+        class="text-black hover:bg-gray-300 dark:text-white dark:hover:bg-gray-600 font-medium rounded-lg text-sm px-5 py-2.5"
+      >
+        Hora
+      </button>
+
+      <!-- Botón de filtro para Cantidad de personas -->
+      <button
+        (click)="togglePersonasFilter()"
+        class="text-black hover:bg-gray-300 dark:text-white dark:hover:bg-gray-600 font-medium rounded-lg text-sm px-5 py-2.5"
+      >
+        Personas
+      </button>
+
+      <!-- Botón de filtro para Rango de precio -->
+      <button
+        (click)="togglePrecioFilter()"
+        class="text-black hover:bg-gray-300 dark:text-white dark:hover:bg-gray-600 font-medium rounded-lg text-sm px-5 py-2.5"
+      >
+        Precio
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- Filtros debajo del Navbar y centrados -->
+<div class="mt-6 max-w-screen-xl mx-auto flex justify-center space-x-6">
+  <!-- Filtro por Lugar -->
+  <div *ngIf="isLugarFilterVisible" class="bg-white shadow-lg p-4 w-64 rounded-md">
+    <label for="lugar" class="block text-gray-700 dark:text-gray-200 mb-2">Lugar</label>
+    <input
+      id="lugar"
+      type="text"
+      placeholder="Buscar lugar"
+      class="w-full p-2 border border-gray-300 rounded-md dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+    />
+  </div>
+
+  <!-- Filtro por Fecha -->
+  <div *ngIf="isFechaFilterVisible" class="bg-white shadow-lg p-4 w-64 rounded-md mt-4">
+    <label for="fecha" class="block text-gray-700 dark:text-gray-200 mb-2">Fecha</label>
+    <input
+      id="fecha"
+      type="date"
+      class="w-full p-2 border border-gray-300 rounded-md dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+    />
+  </div>
+
+  <!-- Filtro por Hora -->
+  <div *ngIf="isHoraFilterVisible" class="bg-white shadow-lg p-4 w-64 rounded-md mt-4">
+    <label for="hora" class="block text-gray-700 dark:text-gray-200 mb-2">Hora</label>
+    <input
+      id="hora"
+      type="time"
+      class="w-full p-2 border border-gray-300 rounded-md dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+    />
+  </div>
+
+  <!-- Filtro por Cantidad de Personas -->
+  <div *ngIf="isPersonasFilterVisible" class="bg-white shadow-lg p-4 w-64 rounded-md mt-4">
+    <label for="personas" class="block text-gray-700 dark:text-gray-200 mb-2">Cantidad de personas</label>
+    <input
+      id="personas"
+      type="number"
+      placeholder="Cantidad de personas"
+      class="w-full p-2 border border-gray-300 rounded-md dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+    />
+  </div>
+
+  <!-- Filtro por Precio -->
+  <div *ngIf="isPrecioFilterVisible" class="bg-white shadow-lg p-4 w-64 rounded-md mt-4">
+    <label for="precio" class="block text-gray-700 dark:text-gray-200 mb-2">Rango de precio</label>
+    <input
+      id="precio"
+      type="range"
+      min="0"
+      max="1000"
+      class="w-full"
+    />
+  </div>
+</div>
