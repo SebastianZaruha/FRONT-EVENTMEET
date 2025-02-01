@@ -57,31 +57,34 @@
         class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start"
       >
         <div class="flex shrink-0 items-center">
-          <h3 style="font-family: cursive; color: white">EventMeet</h3>
+          <a
+            class="nav-link rounded-md bg-gray-900 px-3 py-2 text-sm font-medium text-white"
+            [ngClass]="{ active: menuOption == 'home' }"
+            routerLink=""
+            (click)="onOption('')"
+            aria-current="page"
+            >EventMeet</a
+          >s
         </div>
         <div class="hidden sm:ml-6 sm:block">
           <div class="flex space-x-4">
             <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
+
             <a
-              href="#"
-              class="rounded-md bg-gray-900 px-3 py-2 text-sm font-medium text-white"
+              class="nav-link rounded-md bg-gray-900 px-3 py-2 text-sm font-medium text-white"
+              (click)="onOption('eventos')"
+              [ngClass]="{ active: menuOption == 'eventos' }"
+              routerLink="eventos"
               aria-current="page"
-              >Explora</a
+              >Eventos</a
             >
             <a
-              href="#"
-              class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
-              >Novedades</a
-            >
-            <a
-              href="#"
-              class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
-              >Categorias</a
-            >
-            <a
-              href="#"
-              class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
-              >Calendario</a
+              class="nav-link rounded-md bg-gray-900 px-3 py-2 text-sm font-medium text-white"
+              (click)="onOption('contacto')"
+              routerLink="contacto"
+              [ngClass]="{ active: menuOption == 'contacto' }"
+              aria-current="page"
+              >Contacto</a
             >
           </div>
         </div>
