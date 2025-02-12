@@ -1,5 +1,5 @@
-- El inicio de sesion no esta implementado
-- Falta haceer el registro
-- La pagina de contactos no esta bien hecha
-- Falta cambiar la fuente del texto
+- Conectar registro e inicio de sesión con el token
 - No esta hecha la lógica para traer la info del backend
+
+Diseño:
+- Falta cambiar la fuente del texto

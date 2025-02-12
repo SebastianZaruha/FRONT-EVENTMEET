@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
-import { ModalService } from '../services/modal.service';
-import { Injectable } from '@angular/core';
+import { AuthService } from '../../core/services/auth.service';
+import { Router } from '@angular/router';
+import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
+import { RegisterService } from '../../core/services/register.service';
 
 @Component({
   selector: 'app-registro',
@@ -8,19 +11,11 @@ import { Injectable } from '@angular/core';
   styleUrls: ['./registro.component.css'],
 })
 export class RegistroComponent {
-  constructor(public modalService: ModalService) {}
+  constructor(private registerService: RegisterService, private router: Router) {}
 
-  isRegisterModalOpen = false;
-
-  openRegisterModal() {
-    this.isRegisterModalOpen = true;
+  register(): void {
+    
   }
 
-  closeRegisterModal() {
-    this.isRegisterModalOpen = false;
-  }
-
-  closeModal() {
-    this.modalService.closeModals();
-  }
+  
 }

@@ -1,13 +1,13 @@
-import { Component, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { AuthService } from '../core/services/auth.service';
+import { Component, ViewChild } from '@angular/core';
 import InicioSesionComponent from '../authentication/inicio-sesion/inicio-sesion.component';
+import { AuthService } from '../core/services/auth.service';
 import { ModalService } from '../core/services/modal.service';
 
 @Component({
   selector: 'app-navbar',
   standalone: true,
-  imports: [CommonModule, InicioSesionComponent],
+  imports: [CommonModule],
   providers: [ModalService],
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css'],
