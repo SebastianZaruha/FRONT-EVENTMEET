@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, ViewChild } from '@angular/core';
-import InicioSesionComponent from '../authentication/inicio-sesion/inicio-sesion.component';
+import InicioSesionComponent from '../pages/inicio-sesion/inicio-sesion.component';
 import { AuthService } from '../core/services/auth.service';
 import { ModalService } from '../core/services/modal.service';
 

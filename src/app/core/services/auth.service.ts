@@ -12,12 +12,12 @@ export class AuthService {
   constructor(private httpClent: HttpClient, private router: Router) {}
 
   login(user: string, password: string): Observable<any> {
-    return this.httpClent.post(this.LOGIN_URL, { user, password }).pipe(
+    return this.httpClent.post(this.LOGIN_URL, { email: user, password }).pipe(
       tap((response) => {
-        if ((response as any).token) {
-          console.log((response as any).token);
-          this.setToken((response as any).token);
-        }
+      if ((response as any).token) {
+        console.log((response as any).token);
+        this.setToken((response as any).token);
+      }
       })
     );
   }
