@@ -1,49 +1,51 @@
-import { HttpClient } from '@angular/common/http';
+// auth.service.ts
 import { Injectable } from '@angular/core';
-import { Router } from '@angular/router';
-import { Observable, tap } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { Observable, of, throwError } from 'rxjs';
+import { catchError, map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
-  private LOGIN_URL = 'http://localhost:3000/login';
-  private tokenKey = 'authToken';
-  constructor(private httpClent: HttpClient, private router: Router) {}
+  private apiUrl = 'http://localhost:3000/v1/users'; // Ajusta la URL de tu backend
 
-  login(user: string, password: string): Observable<any> {
-    return this.httpClent.post(this.LOGIN_URL, { email: user, password }).pipe(
-      tap((response) => {
-      if ((response as any).token) {
-        console.log((response as any).token);
-        this.setToken((response as any).token);
-      }
-      })
+  constructor(private http: HttpClient) {}
+
+  login(email: string, password: string): Observable<any> {
+    return this.http
+      .post<any>(`${this.apiUrl}/login`, { email, password })
+      .pipe(
+        map((data: any) => {
+          localStorage.setItem('token', data.token);
+          localStorage.setItem('user', JSON.stringify(data.user));
+          return data;
+        }),
+        catchError(this.handleError)
+      );
+  }
+
+  logout() {
+    localStorage.removeItem('token');
+    localStorage.removeItem('user');
+  }
+
+  isLoggedIn(): boolean {
+    return !!localStorage.getItem('token');
+  }
+
+  getUser(): any {
+    const user = localStorage.getItem('user');
+    return user ? JSON.parse(user) : null;
+  }
+
+  private handleError(error: any) {
+    console.error('Error:', error);
+    return throwError(
+      () =>
+        new Error(
+          error.message || 'Something bad happened; please try again later.'
+        )
     );
-  }
-  private setToken(token: string): void {
-    localStorage.setItem(this.tokenKey, token);
-  }
-
-  private getToken(): string | null {
-    if (typeof window !== 'undefined') {
-      return localStorage.getItem(this.tokenKey);
-    } else {
-      return null;
-    }
-  }
-  isAuthenticaded(): boolean {
-    const token = this.getToken();
-    if (!token) {
-      return false;
-    }
-    const payload = JSON.parse(atob(token.split('.')[1]));
-    const exp = payload.exp * 1000;
-    return Date.now() < exp;
-  }
-
-  logout(): void {
-    localStorage.removeItem(this.tokenKey);
-    this.router.navigate(['/login']);
   }
 }

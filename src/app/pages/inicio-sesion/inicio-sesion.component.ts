@@ -1,25 +1,37 @@
 import { Component } from '@angular/core';
-import { AuthService } from '../../core/services/auth.service';
 import { Router } from '@angular/router';
+import { AuthService } from '../../core/services/auth.service'; // Importa el servicio
 import { FormsModule } from '@angular/forms';
-import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-inicio-sesion',
-  standalone: true,
-  imports: [FormsModule, CommonModule],
   templateUrl: './inicio-sesion.component.html',
   styleUrls: ['./inicio-sesion.component.css'],
+  standalone: true,
+  imports: [FormsModule], // Importa el servicio
+  providers: [AuthService],
 })
-export default class InicioSesionComponent {
-  user: string = '';
-  password: string = '';
+export class InicioSesionComponent {
+  user: any = {
+    // Declara el objeto user
+    email: '',
+    password: '',
+  };
 
   constructor(private authService: AuthService, private router: Router) {}
-  login(): void {
-    this.authService.login(this.user, this.password).subscribe((next) => {
-      this.router.navigate(['/']);
-      error: (err: any) => console.error('Login failed', err);
+
+  login() {
+    this.authService.login(this.user.email, this.user.password).subscribe({
+      // Llama al servicio
+      next: (data) => {
+        console.log('Token JWT:', data.token); // Verifica el token (opcional)
+        localStorage.setItem('token', data.token); // Guarda el token
+        this.router.navigate(['/']); // Redirige al usuario
+      },
+      error: (error) => {
+        console.error('Error en el login:', error);
+        alert('Credenciales incorrectas'); // Muestra un mensaje de error
+      },
     });
   }
 }
