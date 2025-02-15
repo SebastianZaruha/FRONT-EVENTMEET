@@ -1,7 +1,7 @@
 // user.interface.ts
 export interface User {
-  name: string;
+  nick: string;
   email: string;
+  location: string;
   password: string;
-  direction: string; // El signo de interrogación "?" indica que este campo es opcional
 }

@@ -13,31 +13,58 @@ import { User } from '../../shared/interfaces/user.interface';
 })
 export class RegistroComponent {
   user: User = {
-    name: '',
+    nick: '',
     email: '',
     password: '',
-    direction: '',
+    location: '',
   };
+
+  isPasswordInvalid: boolean = false;
+  isSubmitting: boolean = false;
 
   constructor(
     private registerService: RegisterService,
     private router: Router
   ) {}
 
+  // Valida la contraseña en tiempo real
+  checkPassword(): void {
+    this.isPasswordInvalid = this.user.password.trim().length < 6;
+  }
+
+  // Valida todos los campos del formulario
+  isFormInvalid(): boolean {
+    return (
+      !this.user.nick.trim() ||
+      !this.user.email.trim() ||
+      !this.user.password.trim() ||
+      this.isPasswordInvalid
+    );
+  }
+
   register(): void {
+    // Verifica todos los campos y la contraseña
+    if (this.isFormInvalid()) {
+      alert('Por favor, complete todos los campos correctamente.');
+      return;
+    }
+
+    this.isSubmitting = true;
+
     this.registerService
       .register(
-        this.user.name,
-        this.user.email,
-        this.user.password,
-        this.user.direction
+        this.user.nick.trim(),
+        this.user.email.trim(),
+        this.user.password.trim(),
+        this.user.location.trim()
       )
       .subscribe({
-        // Envía los parámetros individualmente
-        next: (data) => {
+        next: () => {
+          this.isSubmitting = false;
           this.router.navigate(['/login']);
         },
         error: (err) => {
+          this.isSubmitting = false;
           console.error('Registration failed', err);
           alert(err.message);
         },
