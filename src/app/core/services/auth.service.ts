@@ -1,25 +1,37 @@
-// auth.service.ts
-import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, of, throwError } from 'rxjs';
+import { Injectable } from '@angular/core';
+import { JwtHelperService } from '@auth0/angular-jwt';
+import { Observable, throwError } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
+import {
+  UserTokenPayload,
+  CompanyTokenPayload,
+  User,
+} from '../../shared/interfaces/user.interface';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
-  private apiUrl = 'http://localhost:3000/v1/users'; // Ajusta la URL de tu backend
+  readonly apiUrl: string = 'http://localhost:3000/v1';
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private jwtHelper: JwtHelperService) {} // Inject
 
-  login(email: string, password: string): Observable<any> {
+  login(email: string, password: string, loginUrl: string): Observable<any> {
     return this.http
-      .post<any>(`${this.apiUrl}/login`, { email, password })
+      .post(`${this.apiUrl}${loginUrl}`, { email, password })
       .pipe(
         map((data: any) => {
-          localStorage.setItem('token', data.token);
-          localStorage.setItem('user', JSON.stringify(data.user));
-          return data;
+          if (data && data.token) {
+            localStorage.setItem('token', data.token);
+            const decodedToken = this.decodeToken(data.token);
+            if (decodedToken) {
+              localStorage.setItem('user', JSON.stringify(decodedToken));
+            }
+            return data;
+          } else {
+            throw new Error('Token not received');
+          }
         }),
         catchError(this.handleError)
       );
@@ -34,9 +46,20 @@ export class AuthService {
     return !!localStorage.getItem('token');
   }
 
-  getUser(): any {
+  getUser(): UserTokenPayload | CompanyTokenPayload | null {
     const user = localStorage.getItem('user');
     return user ? JSON.parse(user) : null;
+  }
+
+  decodeToken(token: string): any | null {
+    // Could also be UserTokenPayload | CompanyTokenPayload | null if you type your tokens
+    try {
+      const decodedToken = this.jwtHelper.decodeToken(token); // Use injected service
+      return decodedToken;
+    } catch (error) {
+      console.error('Invalid token:', error);
+      return null;
+    }
   }
 
   private handleError(error: any) {

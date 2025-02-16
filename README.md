@@ -1,5 +1,5 @@
-- Conectar registro e inicio de sesión con el token
-- No esta hecha la lógica para traer la info del backend
+- No funciona el auth.guard para las paginas de las empresas
+- Falta todo lo demas
 
 Diseño:
 - Falta cambiar la fuente del texto

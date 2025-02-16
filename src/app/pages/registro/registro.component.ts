@@ -17,6 +17,9 @@ export class RegistroComponent {
     email: '',
     password: '',
     location: '',
+    role: '',
+    points: 0,
+    status: ''
   };
 
   isPasswordInvalid: boolean = false;

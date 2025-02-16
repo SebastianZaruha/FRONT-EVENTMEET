@@ -9,6 +9,6 @@ export class AuthenticatedGuard implements CanActivate {
   constructor(private authService: AuthService, private router: Router) {}
 
   canActivate(): boolean {
-    return !this.authService.isLoggedIn(); // Redirige si *ya* está logueado
+    return !this.authService.isLoggedIn(); // Redirect if already logged in
   }
 }
