@@ -1,8 +1,6 @@
-import { NgFor } from '@angular/common';
-import { EventEmitter, Input, Output } from '@angular/core';
-import { Component, OnInit } from '@angular/core';
-import { EventService } from '../../app/core/services/event..service'; // Importar el servicio
 import { CommonModule } from '@angular/common';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { EventService } from '../../app/core/services/event..service'; // Importar el servicio
 
 @Component({
   selector: 'app-ultimos',
@@ -15,7 +13,7 @@ export class UltimosComponent {
   @Output() dataEventEmit = new EventEmitter();
 
   cardsData: { image: string }[] = [];
-  events: any[] = []; // Aquí guardaremos los eventos
+  events: any[] = [];
 
   constructor(private eventService: EventService) {}
 

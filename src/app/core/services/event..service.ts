@@ -8,7 +8,6 @@ import { Observable } from 'rxjs';
 export class EventService {
   private apiUrl = 'http://localhost:3000/v1/events';
 
-  private apiUrl2 = 'http://localhost:3000/v1/events';
 
   constructor(private http: HttpClient) {}
 
@@ -16,12 +15,5 @@ export class EventService {
     return this.http.get<any[]>(`${this.apiUrl}/events`); 
   }
 
-  filterEvents(filters: {
-    location?: string;
-    date?: string;
-    interests?: string;
-    maxPrice?: number;
-  }): Observable<any[]> {
-    return this.http.post<any[]>(`${this.apiUrl2}/events/filter`, filters);
-  }
+  
 }
