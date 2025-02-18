@@ -9,7 +9,6 @@
     <h3 class="text-xl mt-4">Conecta, explora, comparte y crea recuerdos únicos</h3>
   </div>
 </div>
-
 <!-- Navbar con filtros centrados -->
 <nav class="w-full bg-white dark:bg-gray-800 shadow-lg">
   <div class="max-w-screen-xl mx-auto p-4">
@@ -19,9 +18,9 @@
         (click)="toggleLugarFilter()"
         class="text-black hover:bg-gray-300 dark:text-white dark:hover:bg-gray-600 font-medium rounded-lg text-sm px-5 py-2.5"
       >
-        Lolalización
+        Localización
       </button>
-      
+
       <!-- Botón de filtro para Fecha -->
       <button
         (click)="toggleFechaFilter()"
@@ -49,13 +48,14 @@
   </div>
 </nav>
 
-<!-- Filtros debajo del Navbar y centrados -->
+<!-- Filtros debajo del Navbar -->
 <div class="mt-6 max-w-screen-xl mx-auto flex justify-center space-x-6">
   <!-- Filtro por Lugar -->
   <div *ngIf="isLugarFilterVisible" class="bg-white shadow-lg p-4 w-64 rounded-md">
     <label for="lugar" class="block text-gray-700 dark:text-gray-200 mb-2">Lugar</label>
     <input
       id="lugar"
+      [(ngModel)]="filters.location"
       type="text"
       placeholder="Buscar lugar"
       class="w-full p-2 border border-gray-300 rounded-md dark:bg-gray-700 dark:border-gray-600 dark:text-white"
@@ -63,45 +63,47 @@
   </div>
 
   <!-- Filtro por Fecha -->
-  <div *ngIf="isFechaFilterVisible" class="bg-white shadow-lg p-4 w-64 rounded-md mt-4">
+  <div *ngIf="isFechaFilterVisible" class="bg-white shadow-lg p-4 w-64 rounded-md">
     <label for="fecha" class="block text-gray-700 dark:text-gray-200 mb-2">Fecha</label>
     <input
       id="fecha"
+      [(ngModel)]="filters.date"
       type="date"
       class="w-full p-2 border border-gray-300 rounded-md dark:bg-gray-700 dark:border-gray-600 dark:text-white"
     />
   </div>
 
-  <!-- Filtro por Hora -->
-  <div *ngIf="isHoraFilterVisible" class="bg-white shadow-lg p-4 w-64 rounded-md mt-4">
-    <label for="hora" class="block text-gray-700 dark:text-gray-200 mb-2">Hora</label>
+  <!-- Filtro por Interés -->
+  <div *ngIf="isHoraFilterVisible" class="bg-white shadow-lg p-4 w-64 rounded-md">
+    <label for="hora" class="block text-gray-700 dark:text-gray-200 mb-2">Interés</label>
     <input
-      id="hora"
-      type="time"
-      class="w-full p-2 border border-gray-300 rounded-md dark:bg-gray-700 dark:border-gray-600 dark:text-white"
-    />
-  </div>
-
-  <!-- Filtro por Cantidad de Personas -->
-  <div *ngIf="isPersonasFilterVisible" class="bg-white shadow-lg p-4 w-64 rounded-md mt-4">
-    <label for="personas" class="block text-gray-700 dark:text-gray-200 mb-2">Cantidad de personas</label>
-    <input
-      id="personas"
-      type="number"
-      placeholder="Cantidad de personas"
+      id="interests"
+      [(ngModel)]="filters.interests"
+      type="text"
+      placeholder="Escribe un interés"
       class="w-full p-2 border border-gray-300 rounded-md dark:bg-gray-700 dark:border-gray-600 dark:text-white"
     />
   </div>
 
   <!-- Filtro por Precio -->
-  <div *ngIf="isPrecioFilterVisible" class="bg-white shadow-lg p-4 w-64 rounded-md mt-4">
+  <div *ngIf="isPrecioFilterVisible" class="bg-white shadow-lg p-4 w-64 rounded-md">
     <label for="precio" class="block text-gray-700 dark:text-gray-200 mb-2">Rango de precio</label>
     <input
       id="precio"
-      type="range"
+      [(ngModel)]="filters.maxPrice"
+      type="number"
       min="0"
-      max="1000"
-      class="w-full"
+      class="w-full p-2 border border-gray-300 rounded-md dark:bg-gray-700 dark:border-gray-600 dark:text-white"
     />
   </div>
+</div>
+
+<!-- Botón para aplicar los filtros -->
+<div class="mt-4 text-center">
+  <button
+    (click)="applyFilters()"
+    class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+  >
+    Aplicar Filtros
+  </button>
 </div>

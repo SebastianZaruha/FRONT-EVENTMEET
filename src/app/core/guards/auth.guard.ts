@@ -12,6 +12,7 @@ export class AuthGuard implements CanActivate {
     const token = localStorage.getItem('token');
     if (token) {
       const decodedToken = this.authService.decodeToken(token); // Assuming you have a decodeToken method
+      console.log(decodedToken)
       if (decodedToken) {
         return true; // Allow access if token is valid
       }

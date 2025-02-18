@@ -3,6 +3,7 @@ import { Component } from '@angular/core'; // Elimina ViewChild si no lo usas
 import { Router } from '@angular/router'; // Importa Router
 import { AuthService } from '../core/services/auth.service';
 import { ModalService } from '../core/services/modal.service';
+import { CompanyTokenPayload } from '../shared/interfaces/user.interface';
 
 @Component({
   selector: 'app-navbar',
@@ -26,6 +27,11 @@ export class NavbarComponent {
 
   openLoginModal() {
     this.modalService.openModal();
+  }
+
+  isCompany(): boolean {
+    const user = this.authService.getUser();
+    return (user as CompanyTokenPayload)?.name_company !== undefined;
   }
 
   onOption(menuOption: string) {

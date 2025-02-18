@@ -7,7 +7,7 @@ import { tap } from 'rxjs';
   providedIn: 'root',
 })
 export class RegisterService {
-  private LOGIN_URL = 'http://localhost:3000/v1/users';
+  private LOGIN_URL = 'v1/users/user';
   private tokenKey = 'authToken';
 
   constructor(private httpClent: HttpClient, private router: Router) {}

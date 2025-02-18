@@ -29,7 +29,7 @@ export const routes: Routes = [
   {
     path: 'eventos/:id',
     component: EventdetailComponent,
-    canActivate: [AuthGuard], // Requiere autenticación para ver detalles del evento
+    // canActivate: [AuthGuard], // Requiere autenticación para ver detalles del evento
   },
   {
     path: 'login',

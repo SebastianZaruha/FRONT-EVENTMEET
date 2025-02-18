@@ -46,6 +46,7 @@ export class AuthService {
     return !!localStorage.getItem('token');
   }
 
+  
   getUser(): UserTokenPayload | CompanyTokenPayload | null {
     const user = localStorage.getItem('user');
     return user ? JSON.parse(user) : null;

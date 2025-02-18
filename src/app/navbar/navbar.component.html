@@ -50,7 +50,9 @@
             <div *ngIf="!isMenuHidden" class="absolute right-0 z-10 mt-2 w-48 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
               <div class="py-1">
                 <a href="#" class="block px-4 py-2 text-sm text-gray-700">Tu perfil</a>
+                <a *ngIf="isCompany()" href="#" class="block px-4 py-2 text-sm text-gray-700">Página Empresa</a>
                 <a href="#" class="block px-4 py-2 text-sm text-gray-700" (click)="logout()">Salir</a>
+                
               </div>
             </div>
           </ng-container>
