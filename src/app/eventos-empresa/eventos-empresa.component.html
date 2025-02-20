@@ -1,7 +1,7 @@
 <div
-class="absolute right-0 z-10 mt-2 w-48 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
+  class="relative mx-auto z-10 mt-2 w-48 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
+  *ngIf="isMenuHidden; else loggedOut"
 >
-<!-- *ngIf="!isMenuHidden; else loggedOut" -->
   <div class="flex flex-col items-center justify-center mt-32">
     <div
       class="flex flex-col shadow-md cursor-pointer w-96 hover:-translate-y-1 duration-300"
@@ -51,8 +51,16 @@ class="absolute right-0 z-10 mt-2 w-48 rounded-md bg-white shadow-lg ring-1 ring
     </div>
   </div>
 </div>
-<!-- <ng-template #loggedOut>
-  <div style="width: 100%; height: 60%; display:flex; justify-content:center; align-items:center;">
+<ng-template #loggedOut>
+  <div
+    style="
+      width: 100%;
+      height: 60%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    "
+  >
     <svg
       aria-hidden="true"
       class="text-gray-200 animate-spin dark:text-gray-600 fill-blue-600 h-10 w-10"
@@ -70,4 +78,4 @@ class="absolute right-0 z-10 mt-2 w-48 rounded-md bg-white shadow-lg ring-1 ring
       />
     </svg>
   </div>
-</ng-template> -->
+</ng-template>

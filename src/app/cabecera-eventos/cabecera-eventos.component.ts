@@ -1,9 +1,11 @@
+import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-cabecera-eventos',
   templateUrl: './cabecera-eventos.component.html',
   styleUrls: ['./cabecera-eventos.component.css'],
+  imports: [CommonModule],
 })
 export class CabeceraEventosComponent {
   @Output() filtersChanged = new EventEmitter<any>();

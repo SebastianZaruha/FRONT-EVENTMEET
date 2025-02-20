@@ -1,87 +1,68 @@
-<!-- 
-<div
-  *ngIf="isLugarFilterVisible"
-  class="bg-white shadow-lg p-4 w-64 rounded-md"
->
-  <label for="lugar" class="block text-gray-700 dark:text-gray-200 mb-2"
-    >Lugar</label
-  >
-  <input
-    id="lugar"
-    type="text"
-    [(ngModel)]="filters.lugar"
-    (input)="onFilterChange('lugar', $any($event.target).value)"
-    placeholder="Buscar lugar"
-    class="w-full p-2 border border-gray-300 rounded-md dark:bg-gray-700 dark:border-gray-600 dark:text-white"
-  />
+<div class="bg-white shadow-lg p-4 w-full rounded-md flex flex-wrap gap-4 center flex justify-center items-center ">
+  <div class="flex flex-col">
+    <label for="lugar" class="text-gray-700 dark:text-gray-200 mb-1">Lugar</label>
+    <input
+      id="lugar"
+      type="text"
+      (input)="onFilterChange('lugar', $any($event.target).value)"
+      placeholder="Buscar lugar"
+      class="p-2 border border-gray-300 rounded-md dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+    />
+  </div>
+
+  <div class="flex flex-col">
+    <label for="fecha" class="text-gray-700 dark:text-gray-200 mb-1">Fecha</label>
+    <input
+      id="fecha"
+      type="date"
+      (change)="onFilterChange('fecha', $any($event.target).value)"
+      class="p-2 border border-gray-300 rounded-md dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+    />
+  </div>
+
+  <div class="flex flex-col">
+    <label for="interests" class="text-gray-700 dark:text-gray-200 mb-1">Intereses</label>
+    <input
+      type="text"
+      id="interests"
+      name="interests"
+      (input)="onFilterChange('interests', $any($event.target).value)"
+      placeholder="Buscar intereses"
+      class="p-2 border border-gray-300 rounded-md dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+    />
+  </div>
+
+  <div class="flex flex-col">
+    <label for="maxPrice" class="text-gray-700 dark:text-gray-200 mb-1">Precio Máximo</label>
+    <input
+      type="number"
+      id="maxPrice"
+      name="maxPrice"
+      (input)="onFilterChange('maxPrice', $any($event.target).value)"
+      placeholder="Precio máximo"
+      class="p-2 border border-gray-300 rounded-md dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+    />
+  </div>
+
+  <div class="flex items-end">
+    <button
+      type="submit"
+      class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+    >
+      Aplicar Filtros
+    </button>
+  </div>
 </div>
 
-
-<div
-  *ngIf="isFechaFilterVisible"
-  class="bg-white shadow-lg p-4 w-64 rounded-md mt-4"
->
-  <label for="fecha" class="block text-gray-700 dark:text-gray-200 mb-2"
-    >Fecha</label
-  >
-  <input
-    id="fecha"
-    type="date"
-    [(ngModel)]="filters.fecha"
-    (change)="onFilterChange('fecha', $any($event.target).value)"
-    class="w-full p-2 border border-gray-300 rounded-md dark:bg-gray-700 dark:border-gray-600 dark:text-white"
-  />
-</div>
-<div>
-  <label
-    for="interests"
-    class="block text-sm font-medium text-gray-700 dark:text-gray-300"
-    >Intereses</label
-  >
-  <input
-    type="text"
-    id="interests"
-    [(ngModel)]="filters.interests"
-    name="interests"
-    class="w-full mt-1 border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
-  />
-</div>
-<div>
-  <label
-    for="maxPrice"
-    class="block text-sm font-medium text-gray-700 dark:text-gray-300"
-    >Precio Máximo</label
-  >
-  <input
-    type="number"
-    id="maxPrice"
-    [(ngModel)]="filters.maxPrice"
-    name="maxPrice"
-    class="w-full mt-1 border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
-  />
-</div>
-
-<div class="col-span-1 sm:col-span-2 text-center">
-  <button
-    type="submit"
-    class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-  >
-    Aplicar Filtros
-  </button>
-</div>
-
--->
-<div
+<!-- <div
   class="flex flex-col items-center justify-center min-h-screen bg-gray-100 py-8"
 >
-  <!-- Formulario de filtros -->
   <div
     class="w-full sm:w-3/4 p-4 bg-white border border-gray-200 rounded-lg shadow-lg mb-6 dark:bg-gray-800 dark:border-gray-700"
   >
     <h2 class="text-2xl font-bold mb-4 text-gray-900 dark:text-white">
       Filtrar Eventos
     </h2>
-    <!-- Filtro por Lugar -->
     <input
       id="lugar"
       type="text"
@@ -90,7 +71,6 @@
       class="w-full p-2 border border-gray-300 rounded-md dark:bg-gray-700 dark:border-gray-600 dark:text-white"
     />
 
-    <!-- Filtro por Fecha -->
     <input
       id="fecha"
       type="date"
@@ -98,7 +78,6 @@
       class="w-full p-2 border border-gray-300 rounded-md dark:bg-gray-700 dark:border-gray-600 dark:text-white"
     />
 
-    <!-- Filtro por Intereses -->
     <input
       id="hora"
       type="text"
@@ -107,7 +86,6 @@
       class="w-full p-2 border border-gray-300 rounded-md dark:bg-gray-700 dark:border-gray-600 dark:text-white"
     />
 
-    <!-- Filtro por Rango de Precio -->
     <input
       id="precio"
       type="number"
@@ -115,4 +93,4 @@
       class="w-full"
     />
   </div>
-</div>
+</div> -->
