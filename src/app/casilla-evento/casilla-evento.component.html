@@ -1,14 +1,14 @@
 <div
   *ngFor="let event of events; let i = index"
-  class="flex flex-col items-center justify-center bg-gray-100 py-8"
+  class="flex flex-col items-center justify-center bg-gray-100 py-1"
 >
   <div
-    class="w-full sm:w-1/2 p-4 bg-white border border-gray-200 rounded-lg shadow-lg mb-6 dark:bg-gray-800 dark:border-gray-700"
+    class="w-full sm:w-1/2 p-4 bg-white border border-gray-200 rounded-lg shadow-lg mb-1 dark:bg-gray-800 dark:border-gray-700"
   >
     <div class="flex flex-col sm:flex-row">
       <!-- Imagen del evento -->
-      <img class="center-image"
-          [src]="'https://picsum.photos/350/'+ (200 + (i * 50)) + '/?random=' + i"
+      <img class="center-image rounded-lg"
+          [src]="'https://picsum.photos/200/?random=' + i"
           alt="{{ event.title }}"
         />
 
