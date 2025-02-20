@@ -1,128 +1,18 @@
 <div
-  class="grid grid-cols-2 md:grid-cols-6 gap-4"
+  class="grid grid-cols-1 md:grid-cols-4 gap-4"
   style="margin-top: 700px; transform: translateX(15%)"
 >
-  <!-- Primer grupo de imágenes -->
-  <div class="grid gap-4">
+  <div class="grid gap-4" *ngFor="let event of events; let i = index">
     <div>
       <div class="h-auto max-w-full rounded-lg">
-        <img
-          src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image.jpg"
-          alt=""
+        <img class="center-image"
+          [src]="'https://picsum.photos/250/'+ (200 + (i * 50)) + '/?random=' + i"
+          alt="{{ event.title }}"
         />
-        <h5>Evento</h5>
-      </div>
-    </div>
-    <div>
-      <div class="h-auto max-w-full rounded-lg">
-        <img
-          src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-1.jpg"
-          alt=""
-        />
-        <h5>Evento</h5>
-      </div>
-    </div>
-    <div>
-      <div class="h-auto max-w-full rounded-lg">
-        <img
-          src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-2.jpg"
-          alt=""
-        />
-        <h5>Evento</h5>
-      </div>
-    </div>
-  </div>
-
-  <!-- Segundo grupo de imágenes -->
-  <div class="grid gap-4">
-    <div>
-      <div class="h-auto max-w-full rounded-lg">
-        <img
-          src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-3.jpg"
-          alt=""
-        />
-        <h5>Evento</h5>
-      </div>
-    </div>
-    <div>
-      <div class="h-auto max-w-full rounded-lg">
-        <img
-          src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-4.jpg"
-          alt=""
-        />
-        <h5>Evento</h5>
-      </div>
-    </div>
-    <div>
-      <div class="h-auto max-w-full rounded-lg">
-        <img
-          src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-5.jpg"
-          alt=""
-        />
-        <h5>Evento</h5>
-      </div>
-    </div>
-  </div>
-
-  <!-- Tercer grupo de imágenes -->
-  <div class="grid gap-4">
-    <div>
-      <div class="h-auto max-w-full rounded-lg">
-        <img
-          src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-6.jpg"
-          alt=""
-        />
-        <h5>Evento</h5>
-      </div>
-    </div>
-    <div>
-      <div class="h-auto max-w-full rounded-lg">
-        <img
-          src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-7.jpg"
-          alt=""
-        />
-        <h5>Evento</h5>
-      </div>
-    </div>
-    <div>
-      <div class="h-auto max-w-full rounded-lg">
-        <img
-          src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-8.jpg"
-          alt=""
-        />
-        <h5>Evento</h5>
-      </div>
-    </div>
-  </div>
-
-  <!-- Cuarto grupo de imágenes -->
-  <div class="grid gap-4">
-    <div>
-      <div class="h-auto max-w-full rounded-lg">
-        <img
-          src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-9.jpg"
-          alt=""
-        />
-        <h5>Evento</h5>
-      </div>
-    </div>
-    <div>
-      <div class="h-auto max-w-full rounded-lg">
-        <img
-          src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-10.jpg"
-          alt=""
-        />
-        <h5>Evento</h5>
-      </div>
-    </div>
-    <div>
-      <div class="h-auto max-w-full rounded-lg">
-        <img
-          src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-11.jpg"
-          alt=""
-        />
-        <h5>Evento</h5>
+        <h5 class="text-center">{{ event.title }}</h5>
       </div>
     </div>
   </div>
 </div>
+
+
