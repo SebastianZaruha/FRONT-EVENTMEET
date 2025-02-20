@@ -1,18 +1,18 @@
 <div
-  class="flex flex-wrap gap-4 px-4"
+  class="flex flex-wrap gap-4 p-4 bg-gray-100"
   style="margin-top: 50vh; max-width: 100%;"
 >
   <div *ngFor="let event of events; let i = index" class="flex-grow">
     <a href="http://localhost:4200/eventos/{{ event.id }}">
-      <div class="border border-solid border-slate-900 rounded-lg flex flex-col items-center justify-center p-2 custom-shadow">
+      <div class="border border-solid border-slate-900 rounded-lg flex flex-col items-center justify-center p-5 custom-shadow">
         <div class="h-auto rounded-lg flex flex-col items-center">
           <img class="center-image rounded-lg"
-            [src]="'https://picsum.photos/250/'+ (200 + (i * 20)) + '/?random=' + i"
+            [src]="'https://picsum.photos/250/'+ (200 + (i * 10)) + '/?random=' + i"
             alt="{{ event.title }}"
           />
           <h4 class="text-center my-2 font-bold">{{ event.title }}</h4>
           <h5>{{ event.location }}</h5>
-          <h5 class="text-blue-800">{{ event.description }}</h5> 
+          <h5 class="text-indigo-700">{{ event.description }}</h5> 
         </div>
       </div>
     </a>
