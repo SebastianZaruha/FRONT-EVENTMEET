@@ -1,6 +1,21 @@
 <app-navbar></app-navbar>
-<app-cabecera-eventos></app-cabecera-eventos>
+<div class="relative">
+  <img
+    class="w-full h-[30vh] object-cover relative z-0 mt-[-10vh]"
+    src="/images/cabeceraEventos.png"
+    alt="Imagen de cabecera"
+  />
+  <div
+    class="absolute top-2/3 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white text-center"
+  >
+    <h1 class="text-3xl font-bold">Descubre eventos que se adaptan a ti</h1>
+    <h3 class="text-xl mt-4">
+      Conecta, explora, comparte y crea recuerdos únicos
+    </h3>
+  </div>
+</div>
+<app-cabecera-eventos (filtersChanged)="onFiltersChanged($event)"></app-cabecera-eventos>
 <app-ultimos></app-ultimos>
 <app-buscar-mapa></app-buscar-mapa>
-<app-casilla-evento></app-casilla-evento>
+<app-casilla-evento [events]="eventos"></app-casilla-evento>
 <app-footer></app-footer>

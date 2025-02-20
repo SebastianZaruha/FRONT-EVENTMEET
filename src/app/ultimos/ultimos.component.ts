@@ -1,29 +1,38 @@
 import { CommonModule } from '@angular/common';
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { EventService } from '../../app/core/services/event..service'; // Importar el servicio
 
 @Component({
   selector: 'app-ultimos',
-  imports: [CommonModule],
   templateUrl: './ultimos.component.html',
-  styleUrl: './ultimos.component.css',
+  styleUrls: ['./ultimos.component.css'],
+  imports: [CommonModule],
 })
-export class UltimosComponent {
-  @Input() data: any;
-  @Output() dataEventEmit = new EventEmitter();
-
-  cardsData: { image: string }[] = [];
-  events: any[] = [];
+export class UltimosComponent implements OnInit {
+  events: any[] = []; // Lista de eventos filtrados
 
   constructor(private eventService: EventService) {}
 
   ngOnInit(): void {
+    // Cargar todos los eventos al inicio
     this.eventService.getEvents().subscribe({
       next: (data) => {
         this.events = data;
       },
-      error: (error) => {
-        console.error('Error al obtener eventos:', error);
+      error: (err) => {
+        console.error('Error al cargar eventos:', err);
+      },
+    });
+  }
+
+  // Método para aplicar los filtros
+  onFiltersChanged(filters: any): void {
+    this.eventService.filterEvents(filters).subscribe({
+      next: (filteredEvents) => {
+        this.events = filteredEvents; // Actualizar los eventos visibles
+      },
+      error: (err) => {
+        console.error('Error al filtrar eventos:', err);
       },
     });
   }

@@ -1,14 +1,47 @@
-<app-cabecera-eventos (filtersChanged)="onFiltersChanged($event)"></app-cabecera-eventos>
+<div
+  *ngFor="let event of events"
+  class="flex flex-col items-center justify-center bg-gray-100 py-8"
+>
+  <div
+    class="w-full sm:w-1/2 p-4 bg-white border border-gray-200 rounded-lg shadow-lg mb-6 dark:bg-gray-800 dark:border-gray-700"
+  >
+    <div class="flex flex-col sm:flex-row">
+      <!-- Imagen del evento -->
+      <img
+        class="object-cover w-full sm:w-1/2 rounded-lg mb-4 sm:mb-0"
+        [src]="'../../../images/ciudadMapa.png'"
+        alt="Imagen representativa del evento en la ciudad"
+      />
 
-<div class="event-container">
-  <div *ngIf="filteredEvents.length === 0" class="text-gray-500">
-    No hay eventos que coincidan con los filtros.
-  </div>
+      <!-- Detalles del evento -->
+      <div class="flex flex-col justify-between p-4 w-full sm:w-1/2">
+        <h5
+          class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"
+        >
+          {{ event.title }}
+        </h5>
+        <h5
+          class="mb-2 text-xl font-semibold tracking-tight text-gray-900 dark:text-white"
+        >
+          {{ event.location }}
+        </h5>
+        <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
+          {{ event.description }}
+        </p>
+      </div>
+    </div>
 
-  <div *ngFor="let event of filteredEvents" class="event-item">
-    <h3>{{ event.title }}</h3>
-    <p>{{ event.description }}</p>
-    <p>Fecha: {{ event.date }}</p>
-    <p>Precio: {{ event.price }}</p>
+    <!-- Botón y precio -->
+    <div class="flex items-center justify-between mt-4">
+      <a
+        href="#"
+        class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 transition duration-300 ease-in-out transform hover:scale-105"
+      >
+        Apuntarse
+      </a>
+      <h6 class="text-lg font-bold text-gray-800 dark:text-white">
+        {{ event.price }} €
+      </h6>
+    </div>
   </div>
 </div>
