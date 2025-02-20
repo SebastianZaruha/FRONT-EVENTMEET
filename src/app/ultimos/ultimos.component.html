@@ -22,23 +22,24 @@
           <div class="px-5 pb-5">
             <a href="http://localhost:4200/eventos/{{ event.id }}">
               <h5
-                class="text-xl font-semibold tracking-tight text-gray-900 dark:text-white"
+                class="text-xl text-center font-semibold tracking-tight text-gray-900 dark:text-white"
               >
                 {{ event.title }}
               </h5>
             </a>
-            <div class="flex items-center mt-2.5 mb-5">
+            <div class="flex flex-col items-center mt-2.5 mb-5">
               <h3 class="text-gray-700 dark:text-gray-300">
-                Evento creado por X
+                Organizador: <b>{{ event.companyid }}</b>
               </h3>
-              <p class="text-gray-500 dark:text-gray-400 ml-4">
+
+              <p class="text-gray-500 dark:text-gray-400 mb-2 text-center">
                 {{ event.description }}
               </p>
             </div>
             <div class="flex items-center justify-center">
               <a
                 href="http://localhost:4200/eventos/{{ event.id }}"
-                class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                class="text-white bg-indigo-700 hover:bg-indigo-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
               >
                 Ver más
               </a>
