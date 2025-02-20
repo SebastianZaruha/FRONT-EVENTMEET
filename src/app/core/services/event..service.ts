@@ -19,6 +19,15 @@ export class EventService {
     );
   }
 
+  getEventById(id: string): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}/event/${id}`).pipe(
+      catchError((error) => {
+        console.error('Error fetching event:', error);
+        return throwError(() => new Error('Error fetching event'));
+      })
+    );
+  }
+
   filterEvents(filters: any): Observable<any[]> {
     return this.http.post<any[]>(`${this.apiUrl}/filter`, filters);
   }

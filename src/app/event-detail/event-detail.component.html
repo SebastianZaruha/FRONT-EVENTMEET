@@ -25,31 +25,32 @@
     <!-- Product info -->
     <div class="mx-auto max-w-2xl px-4 pt-10 pb-16 sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-3 lg:grid-rows-[auto_auto_1fr] lg:gap-x-8 lg:px-8 lg:pt-16 lg:pb-24">
       <div class="lg:col-span-2 lg:border-r lg:border-gray-200 lg:pr-8">
-        <h1 class="text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl">Título del evento</h1>
+        <h1 class="text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl">{{ event.title }}</h1>
+        {{ event.location }}
     </div>
     
     
     <div class="mt-4 lg:row-span-3 lg:mt-0">
           <h2 class="sr-only">Product information</h2>
           <h2>Precio</h2>
-          <p class="text-3xl tracking-tight text-gray-900">$192</p>
+          <p class="text-3xl tracking-tight text-gray-900">{{ event.price }} €</p>
           
-          <button type="submit" class="mt-10 flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:outline-hidden">Apuntarse</button>
-          
+          <a href="http://localhost:4200/"><button type="submit" class="mt-10 flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:outline-hidden">Apuntarse</button>
+          </a>
         </div>
         
         <div class="py-10 lg:col-span-2 lg:col-start-1 lg:border-r lg:border-gray-200 lg:pt-6 lg:pr-8 lg:pb-16">
             <div>
             <h3 class="sr-only">Descripción</h3>
             <div class="space-y-6">
-            <p class="text-base text-gray-900">The Basic Tee 6-Pack allows you to fully express your vibrant personality with three grayscale options. Feeling adventurous? Put on a heather gray tee. Want to be a trendsetter? Try our exclusive colorway: &quot;Black&quot;. Need to add an extra pop of color to your outfit? Our white tee has you covered.</p>
+            <p class="text-base text-gray-900">{{ event.description }}</p>
           </div>
         </div>
 
       <div class="mt-10">
-          <h2 class="text-sm font-medium text-gray-900">Creado por:</h2>
+          <h2 class="text-sm font-medium text-gray-900">Creado por: {{ event.companyid }}</h2>
           <div class="mt-4 space-y-6">
-            <h5 class="text-sm text-gray-600">Empresa</h5>
+            <h5 class="text-sm text-gray-600"></h5>
           </div>
           
         </div>
