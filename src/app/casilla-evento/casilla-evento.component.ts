@@ -1,12 +1,12 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-casilla-evento',
   templateUrl: './casilla-evento.component.html',
-  styleUrl: './casilla-evento.component.css',
+  styleUrls: ['./casilla-evento.component.css'],
   imports: [CommonModule],
 })
 export class CasillaEventoComponent {
-  @Input() events: any[] = [];
+  @Input() events: any[] = []; // Lista de eventos recibida como entrada
 }

@@ -1,5 +1,5 @@
 <div
-  *ngFor="let event of events"
+  *ngFor="let event of events; let i = index"
   class="flex flex-col items-center justify-center bg-gray-100 py-8"
 >
   <div
@@ -7,11 +7,11 @@
   >
     <div class="flex flex-col sm:flex-row">
       <!-- Imagen del evento -->
-      <img
-        class="object-cover w-full sm:w-1/2 rounded-lg mb-4 sm:mb-0"
-        [src]="'../../../images/ciudadMapa.png'"
-        alt="Imagen representativa del evento en la ciudad"
-      />
+      <img class="center-image"
+          [src]="'https://picsum.photos/350/'+ (200 + (i * 50)) + '/?random=' + i"
+          alt="{{ event.title }}"
+        />
+
 
       <!-- Detalles del evento -->
       <div class="flex flex-col justify-between p-4 w-full sm:w-1/2">

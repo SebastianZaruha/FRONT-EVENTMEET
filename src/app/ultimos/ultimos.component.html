@@ -10,12 +10,12 @@
         <!-- Aquí van los eventos -->
         <div
           class="flex-shrink-0 w-[300px] max-w-xs bg-white rounded-lg shadow-lg"
-          *ngFor="let event of events"
+          *ngFor="let event of events; let i = index"
         >
           <a href="#">
             <img
               class="p-8 rounded-t-lg"
-              src="../../../images/Logo.png"
+              [src]="'https://picsum.photos/300/'+ (200 + (i * 50)) + '/?random=' + i"
               alt="Imagen de evento"
             />
           </a>
